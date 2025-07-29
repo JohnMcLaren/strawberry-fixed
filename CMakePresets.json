@@ -1,0 +1,52 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "ninja-mc",
+      "displayName": "Ninja-MC",
+      "generator": "Ninja Multi-Config",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_AUTOUIC": "ON",
+        "CMAKE_AUTOMOC": "ON",
+        "CMAKE_AUTORCC": "ON",
+        "CMAKE_CXX_FLAGS": "-I${sourceDir}/build"
+      },
+      "environment": {
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "displayName": "Release",
+      "configurePreset": "ninja-mc",
+      "configuration": "Release"
+    },
+    {
+      "name": "release-dbg",
+      "displayName": "Release-Debug",
+      "configurePreset": "ninja-mc",
+      "configuration": "RelWithDebInfo"
+    },
+    {
+      "name": "release-min",
+      "displayName": "Release-MinSize",
+      "configurePreset": "ninja-mc",
+      "configuration": "MinSizeRel"
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "configurePreset": "ninja-mc",
+      "configuration": "Debug"
+    }
+  ]
+}
